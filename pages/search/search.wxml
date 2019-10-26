@@ -1,0 +1,3 @@
+<!--pages/logs/logs.wxml-->
+<searchbar></searchbar>
+<text>搜索</text>
