@@ -104,6 +104,21 @@ const network = {
         }
       }
     })
+  },
+
+  // 搜索item
+  getsearch: function(params){
+    var q = params.q;
+    var url = globalUrls.searchUrl(q);
+    wx.request({
+      url: url,
+      success: function(res){
+        var subjects = res.data.subjects;
+        if (params.success) {
+          params.success(subjects);
+        }
+      }
+    })
   }
 }
 

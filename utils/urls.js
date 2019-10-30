@@ -22,6 +22,9 @@ const globalUrls = {
   },
   showComments: function (id, start=0, count=3) {
     return this.tvComments(id, start, count);
+  },
+  searchUrl: function(q) {
+    return "https://m.douban.com/rexxar/api/v2/search?type=movie&q=" + q
   }
 }
 

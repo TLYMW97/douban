@@ -1,4 +1,5 @@
 // pages/logs/logs.js
+import {network} from "../../utils/network.js"
 Page({
 
   /**
@@ -13,6 +14,27 @@ Page({
    */
   onLoad: function (options) {
 
+  },
+
+  onSearchInputEvent: function(event){
+    var that = this;
+    var value = event.detail.value
+    network.getsearch({
+      q: value,
+      success: function(subjects){
+        console.log(subjects);
+        that.setData({
+          subjects: subjects
+        })
+      }
+    })
+  },
+
+  onItemTapEvent: function (event) {
+    var id = event.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: "/pages/detail/detail?type=movie&id="+id,
+    })
   },
 
   /**

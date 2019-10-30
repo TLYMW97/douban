@@ -1,3 +1,11 @@
 <!--pages/logs/logs.wxml-->
-<searchbar></searchbar>
-<text>搜索</text>
+<searchbar bindsearchinput="onSearchInputEvent"></searchbar>
+<view class="item-list-group">
+  <view wx:for="{{subjects}}" wx:key="{{item.id}}" class="item-group" bindtap="onItemTapEvent" data-id="{{item.id}}" data-type="{{item.type}}">
+    <image src="{{item.pic.normal}}" class="thumbnail"></image>
+    <view class="info-group">
+      <view class="title">{{item.title}}</view>
+      <view class="rate-year">{{item.rating.value}}分/{{item.year}}</view>
+    </view>
+  </view>
+</view>
